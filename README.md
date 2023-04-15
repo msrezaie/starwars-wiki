@@ -1,2 +1,2 @@
-# starwars-wiki
+# About
 "Star Wars-wiki" is a basic webpage created with HTML, CSS, and JavaScript that displays data from the Star Wars API (https://swapi.dev/) using the Fetch API. The webpage allows users to view data for at least two models in the API, such as people and films, and provides a way to navigate between each model's page to the other models that are displayed. This project was created as part of an assignment to demonstrate proficiency in web development using JavaScript and working with APIs.
