@@ -8,38 +8,143 @@ html {
 
 body {
   margin: 0;
-  background-image: url('/assets/styles/images/bg-1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  overflow: hidden;
+}
+
+h1,h2,h3{
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke-color: rgb(110, 102, 60);
+  -webkit-text-stroke-width: 0.5px;
+}
+
+ul {
+  list-style: none;
+}
+
+.visible {
+  display: none;
+}
+
+.go-back-btn {
+  margin: 5px 5px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .logo img{
-  width: 600px;
+  width: 100%;
+  max-width: 580px;
 }
 
 .page-header p {
   color: rgb(0, 0, 0);
-  text-shadow: 0 0 5px #ddcc13;
+  -webkit-text-stroke-color: rgb(218, 195, 84);
+  -webkit-text-stroke-width: 1.5px;
   text-transform: uppercase;
-  font-size: 40px;
-  font-weight: 600;
+  font-size: 45px;
+  font-weight: 800;
   font-family: 'Helvetica Neue', sans-serif;
 }
 
-.page-btns img{
-  width: 100px;
+@media (max-width: 568px) {
+  .logo img{
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .page-header p {
+    font-size: 35px;
+  }
 }
 
-.btn-custom {
-  font-size: 25px;
+.page-header {
+  overflow: hidden;
+}
+
+.chars-col img,
+.films-col img{
+  width: 150px;
+}
+
+.banner {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 5px;
+  background-color: #131c0c;
+}
+
+.banner.index-banner {
+  max-width: 200px;
+}
+
+.banner.about-banner {
+  max-width: 500px;
+}
+
+#film-list li,
+#char-list li {
+  margin-top: 30px;
+}
+
+.film-item,
+.character-item {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 100%;
+  max-width: 350px;
+  cursor: pointer;
+}
+
+.character-item h2:hover,
+.film-item h2:hover {
+  color: #3838a8;
+  -webkit-text-stroke-color: #3838a8;
+}
+
+.about-character.visible {
+  display: block;
+}
+
+.about-character {
+  display: none;
+}
+
+.about-film.visible {
+  display: block;
+}
+
+.about-film {
+  display: none;
+}
+
+#index-loading-div,
+#char-loading-div,
+#film-loading-div
+ p {
+  font-size: 30px;
+  font-weight: bold;
   color: white;
-  text-transform: uppercase;
-  width: 200px;
 }
 
-.btn-films,.btn-chars ul {
-  list-style: none;
+.dot-1, .dot-2, .dot-3 {
+  animation: blink 1.4s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0;
+  }
+  
+  50% {
+    opacity: 1;
+  }
 }
