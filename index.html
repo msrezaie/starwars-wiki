@@ -9,51 +9,145 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/styles/css/app.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/styles/favicon.ico">
     <script src="assets/scripts/app.js" defer></script>
   </head>
-  <body>
-    <div class="page-header text-center mt-5">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class="logo p-5">
-              <img src="/assets/styles/images/title.png" alt="">
-            </div>
-            <div class="title p-5">
-              <p>Characters & films wiki</p>
-            </div>
+  <body style="background-image: url('assets/styles/images/bg-1.jpg');">
+    <button class="go-back-btn btn btn-warning">Go Back</button>
+    <div class="page-header text-center mt-2">
+      <div class="row">
+        <div class="col">
+          <div class="logo">
+            <img src="assets/styles/images/title.png" alt="sw-logo">
+          </div>
+          <div class="title">
+            <p>Characters & films wiki</p>
           </div>
         </div>
-        <div class="page-btns text-center">
-          <div class="row m-3">
-            <p>Explore</p>
+      </div>
+    </div>
+    
+    <!-- List item templates used for importing and populating lists with fetched characters or films data -->
+    <template id="character-link">
+      <li class="character-item"><h2></h2></li>
+    </template>
+
+    <template id="film-link">
+      <li class="film-item"><h2></h2></li>
+    </template>
+
+    <!-- A section for displaying fetched characters and films titles -->
+    <section class="index-lists">
+      <div class="row m-1 text-center">
+        <div class="col-6">
+          <div class="chars-col">
+            <ul id="char-list">
+              <li>
+                <img src="assets/styles/images/char.png" alt="">
+              </li>
+              <li>
+                <div class="banner index-banner"><h3>Characters</h3></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="films-col">
+            <ul id="film-list">
+              <li>
+                <img src="assets/styles/images/film.png" alt="">
+              </li>
+              <li>
+                <div class="banner index-banner"><h3>Films</h3></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="index-loading-div">
+          <p>Fetching Data<span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- A section for displaying fetched character data based on selection, invisible on load -->
+    <section class="about-character">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col banner about-banner">
+            <h1 id="char-name"></h1>
+          </div>
+          <div class="row">
             <div class="col-6">
-              <div class="btn-chars">
-                <ul>
-                  <li>
-                    <img src="/assets/styles/images/char.png" alt="">
-                  </li>
-                  <li>
-                    <button type="button" class="btn btn-dark btn-custom">Characters</button>
-                  </li>
-                </ul>
-              </div>
+              <ul>
+                <li><h2>Birth Year:</h2></li>
+                <li><h2>Mass:</h2></li>
+                <li><h2>Hair Color:</h2></li>
+                <li><h2>Skin Color:</h2></li>
+                <li><h2>Eye Color:</h2></li>
+                <li><h2>Gender:</h2></li>
+              </ul>
             </div>
             <div class="col-6">
-              <div class="btn-films">
-                <ul>
-                  <li>
-                    <img src="/assets/styles/images/film.png" alt="">
-                  </li>
-                  <li>
-                    <button type="button" class="btn btn-dark btn-custom">Films</button>
-                  </li>
-                </ul>
+              <ul id="char-values">
+                <li id="birth_year"><h2></h2></li>
+                <li id="mass"><h2></h2></li>
+                <li id="hair_color"><h2></h2></li>
+                <li id="skin_color"><h2></h2></li>
+                <li id="eye_color"><h2></h2></li>
+                <li id="gender"><h2></h2></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <ul id="featured-films-list">
+                <li><h1 class="banner about-banner">Featured Films</h1></li>
+              </ul>
+              <div id="char-loading-div">
+                <p>Fetching Data<span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- A section for displaying fetched Film data based on selection, invisible on load -->
+    <section class="about-film">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col banner about-banner">
+            <h1 id="film-name"></h1>
+          </div>
+          <h3 id="film-crawl"></h3>
+          <div class="row">
+            <div class="col-5">
+              <ul>
+                <li><h2>Director:</h2></li>
+                <li><h2>Producer:</h2></li>
+                <li><h2>Release Date:</h2></li>
+              </ul>
+            </div>
+            <div class="col-7">
+              <ul id="film-values">
+                <li id="director"><h2></h2></li>
+                <li id="producer"><h2></h2></li>
+                <li id="release_date"><h2></h2></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <ul id="featured-characters-list">
+                <li><h1 class="banner about-banner">Featured Characters</h1></li>
+              </ul>
+              <div id="film-loading-div">
+                <p>Fetching Data<span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
