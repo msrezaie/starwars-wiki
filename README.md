@@ -6,7 +6,7 @@ The web app can be run by simply running the 'index.html' after cloning the repo
 https://msrezaie.github.io/starwars-wiki/
 
 # UI
-The web app has only a signle html page. Following are the views users will face after accessing the web app: 
+The web app has only a signle html page. In order to view the fetched data of a specific model, users can simply click on a Character's name or a Film's title. Following are the views users will face after accessing the web app: 
 ## Main View (lists of Characters & Films)
 <img width="1268" alt="image" src="https://user-images.githubusercontent.com/79583632/233812523-7fa3ed34-07ec-4793-a142-3abae36fae12.png">
 
