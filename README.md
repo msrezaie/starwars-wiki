@@ -5,8 +5,14 @@
 The web app can be run by simply running the 'index.html' after cloning the repo. The web app is also hosted in github pages, and can be easily accessed using the following link:
 https://msrezaie.github.io/starwars-wiki/
 
+# Technologies
+- **HTML** for structuring of the webpage
+- **CSS** for styling
+- **Bootstrap** used as the front-end framework in order to implement responsiveness
+- **JavaScript** for implementing the main functionalities of the webpage, by utilizing the built in Fetch API, data from 'Characters' and 'Films' models from 'https://swapi.dev/api/' are displayed
+
 # UI
-The web app has only a signle html page. Styling of the elements in the web page is done with CSS with the help of Bootstrap. In order to view the fetched data of a specific model, users can simply click on a Character's name or a Film's title. Following are the views users will face after accessing the web app: 
+The web app has only a signle html page. In order to view the fetched data of a specific model, users can simply click on a Character's name or a Film's title. Following are the views users will face after accessing the web app: 
 ## Main View (lists of Characters & Films)
 <img width="1268" alt="image" src="https://user-images.githubusercontent.com/79583632/233812523-7fa3ed34-07ec-4793-a142-3abae36fae12.png">
 
